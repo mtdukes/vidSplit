@@ -13,7 +13,7 @@ def time_split(video_path, interval, video_duration):
     while i < loop_num:
         position = datetime.timedelta(seconds=(interval*i))
         ##designate new file name
-        new_file = video_path.replace('.mp4',(str(i)+'.mp4'))
+        new_file = video_path.replace('.mp',(str(i)+'.mp'))
         ##run video splitter
         command = 'ffmpeg -ss {0} -t {1} -i {2} -acodec copy -vcodec copy {3}'.format(position,interval_delta,video_path,new_file)
         subprocess.Popen([command], shell=True, stdout=subprocess.PIPE).stdout.read()
